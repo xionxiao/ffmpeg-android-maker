@@ -6,5 +6,5 @@ install:
 script:
   - docker run --rm
     -v $(pwd):/mnt/ffmpeg-android-maker
-    -e FAM_ARGS="-dav1d -mp3lame -aom -opus -wavpack -twolame -speex -android=18"
+    -e FAM_ARGS="-dav1d -mp3lame -aom -opus -wavpack -twolame -speex"
     javernaut/ffmpeg-android-maker
