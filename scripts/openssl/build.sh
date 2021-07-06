@@ -15,10 +15,6 @@ case $ANDROID_ABI in
     ;;
 esac
 
-echo "Android API: " ${ANDROID_PLATFORM}
-
-echo "${ANDROID_NDK_HOME}"
-
 export ANDROID_NDK_ROOT=${ANDROID_NDK_HOME}
 export PATH=$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/darwin-x86_64/bin:$ANDROID_NDK_HOME/toolchains/arm-linux-androideabi-4.9/prebuilt/darwin-x86_64/bin:$ANDROID_NDK_HOME/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/bin:$PATH
 
@@ -28,7 +24,7 @@ echo "${INSTALL_DIR} | ${TARGET}"
     --prefix=${INSTALL_DIR} \
     ${target} \
     no-shared \
-    -D__ANDROID_API__=21 \
+    -D__ANDROID_API__=${ANDROID_PLATFORM} \
     CC=${FAM_CC} \
     AR=${FAM_AR} \
     RANLIB=${FAM_RANLIB} || exit 1
